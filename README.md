@@ -1,73 +1,52 @@
-# Welcome to your Lovable project
+# BrandAI - AI Critique Engine for Generated Ads
 
-## Project info
+Build the AI That Critiques, Improves, and Trusts AI-Generated Ads
 
-**URL**: https://lovable.dev/projects/26ec36b8-2773-4f0c-8cfd-ae556cf18e5a
+## Overview
 
-## How can I edit this code?
+BrandAI is an AI system that generates ads and evaluates them across multiple dimensions (brand alignment, visual quality, message clarity, and safety & ethics) to ensure they are ready for autonomous deployment.
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- **Brand Kit Extraction**: Extract brand information from logos, images, and optional external sources
+- **Ad Generation**: Generate 3-4 variations of ads using Google Vertex AI (Imagen 2, Veo)
+- **Critique Engine**: Comprehensive evaluation using Gemini Vision, CLIP, and OpenCV
+- **Refinement**: Automatic improvement through prompt refinement or image enhancement
+- **Multi-Agent Workflow**: LangGraph-based orchestration
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/26ec36b8-2773-4f0c-8cfd-ae556cf18e5a) and start prompting.
+## Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Backend**: FastAPI, Python 3.12
+- **Orchestration**: LangGraph
+- **AI Models**: Gemini 1.5 Pro Vision, Vertex AI (Imagen 2, Veo), CLIP
+- **Image Processing**: OpenCV, Pillow
+- **Containerization**: Docker
 
-**Use your preferred IDE**
+## Project Structure
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+See `ARCHITECTURE.md` for complete architecture documentation.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Setup
 
-Follow these steps:
+1. Clone the repository
+2. Set up GCP credentials in `config/gcp/`
+3. Copy `.env.example` to `.env` and fill in your credentials
+4. Build and run with Docker:
+   ```bash
+   docker-compose up --build
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## API Endpoints
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- `POST /generate` - Generate and critique ads
+- `GET /status/{run_id}` - Check generation status
+- `GET /health` - Health check
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Documentation
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+- `ARCHITECTURE.md` - System architecture
+- `PROGRESS_TRACKER.md` - Implementation progress
 
-**Edit a file directly in GitHub**
+## License
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/26ec36b8-2773-4f0c-8cfd-ae556cf18e5a) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+MIT
